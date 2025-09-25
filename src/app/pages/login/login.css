@@ -1,0 +1,68 @@
+.parent {
+      background: linear-gradient(135deg, #007bff, #6610f2);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .login-card {
+      background: linear-gradient(135deg, #ffffff, #e9f0ff);
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      padding: 40px 30px;
+      width: 100%;
+      max-width: 400px;
+      animation: fadeInUp 1s ease-in-out;
+    }
+    .login-card h3 {
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #333;
+    }
+    .form-control {
+      border-radius: 10px;
+      padding-left: 40px;
+      background: #fff;
+    }
+    .input-group-text {
+      border: none;
+      background: none;
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+      color: #6c757d;
+    }
+    .btn-custom {
+      border-radius: 10px;
+      background: #007bff;
+      color: #fff;
+      transition: 0.3s;
+    }
+    .btn-custom:hover {
+      background: #0056b3;
+      box-shadow: 0 5px 15px rgba(0,123,255,0.5);
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .car-icon {
+      font-size: 50px;
+      color: #007bff;
+      text-align: center;
+      margin-bottom: 15px;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
