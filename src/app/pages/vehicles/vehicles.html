@@ -1,6 +1,6 @@
 <div class="container-fluid mt-4">
   <div class="row">
-    
+
     <!-- Vehicle List (col-8) -->
     <div class="col-md-8 mb-3">
       <div class="card shadow-lg">
@@ -25,20 +25,25 @@
                 </tr>
               </thead>
               <tbody>
+                @for (item of carList; track $index) {
                 <tr>
-                  <td>1</td>
-                  <td>Toyota</td>
-                  <td>Corolla</td>
-                  <td>2021</td>
-                  <td>White</td>
-                  <td>$50</td>
-                  <td>MH12AB1234</td>
-                  <td><img src="https://via.placeholder.com/60" class="img-thumbnail"></td>
+                  <td>{{$index+1}}</td>
+                  <!-- <td>{{item.carId}}</td> -->
+                  <td>{{item.brand}}</td>
+                  <td>{{item.model}}</td>
+                  <td>{{item.year}}</td>
+                  <td>{{item.color}}</td>
+                  <td>{{item.dailyRate}}</td>
+                  <td>{{item.regNo}}</td>
+
+                  <td>{{item.carImage}}</td>
                   <td>
-                    <button class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button>
-                    <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                    <button class="btn btn-sm btn-warning" (click)="onEdit(item)"><i class="fa fa-pencil"></i></button>
+                    <button class="btn btn-sm btn-danger ms-1" (click)="onDeleteCarbyId(item.carId)" ><i class="fa fa-trash"></i></button>
                   </td>
                 </tr>
+                }
+<!-- 
                 <tr>
                   <td>2</td>
                   <td>Honda</td>
@@ -52,7 +57,7 @@
                     <button class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button>
                     <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                   </td>
-                </tr>
+                </tr> -->
               </tbody>
             </table>
           </div>
@@ -70,34 +75,49 @@
           <form>
             <div class="mb-3">
               <label class="form-label">Brand</label>
-              <input type="text" [(ngModel)]="newcarobj.brand" name="brand" class="form-control" placeholder="Enter brand">
+              <input type="text" [(ngModel)]="newcarobj.brand" name="brand" class="form-control"
+                placeholder="Enter brand">
             </div>
             <div class="mb-3">
               <label class="form-label">Model</label>
-              <input type="text" [(ngModel)]="newcarobj.model" name="model" class="form-control" placeholder="Enter model">
+              <input type="text" [(ngModel)]="newcarobj.model" name="model" class="form-control"
+                placeholder="Enter model">
             </div>
             <div class="mb-3">
               <label class="form-label">Year</label>
-              <input type="number" [(ngModel)]="newcarobj.year" name="year" class="form-control" placeholder="Enter year">
+              <input type="number" [(ngModel)]="newcarobj.year" name="year" class="form-control"
+                placeholder="Enter year">
             </div>
             <div class="mb-3">
               <label class="form-label">Color</label>
-              <input type="text" [(ngModel)]="newcarobj.color" name="color" class="form-control" placeholder="Enter color">
+              <input type="text" [(ngModel)]="newcarobj.color" name="color" class="form-control"
+                placeholder="Enter color">
             </div>
             <div class="mb-3">
               <label class="form-label">Daily Rate ($)</label>
-              <input type="number" [(ngModel)]="newcarobj.dailyRate" name="dailyRate" class="form-control" placeholder="Enter daily rate">
+              <input type="number" [(ngModel)]="newcarobj.dailyRate" name="dailyRate" class="form-control"
+                placeholder="Enter daily rate">
             </div>
             <div class="mb-3">
               <label class="form-label">Registration No</label>
-              <input type="text" [(ngModel)]="newcarobj.regNo" name="regNo" class="form-control" placeholder="Enter registration number">
+              <input type="text" [(ngModel)]="newcarobj.regNo" name="regNo" class="form-control"
+                placeholder="Enter registration number">
             </div>
             <div class="mb-3">
               <label class="form-label">Car Image URL</label>
-              <input type="text" [(ngModel)]="newcarobj.carImage" name="carImage" class="form-control" placeholder="Enter image URL">
+              <input type="text" [(ngModel)]="newcarobj.carImage" name="carImage" class="form-control"
+                placeholder="Enter image URL">
             </div>
             <div class="d-grid">
-              <button type="button" (click)="onSaveCar()" class="btn btn-success"><i class="fa fa-save"></i> Save Vehicle</button>
+              @if(newcarobj.carId==0){
+                  <button type="button" (click)="onSaveCar()" class="btn btn-success"><i class="fa fa-save"></i> Save Vehicle</button>
+              }@else {
+                 <button type="button" (click)="onUpdate()" class="btn btn-warning"><i class="fa fa-save"></i> Update Vehicle</button>
+              }
+            
+            </div>
+            <div class="d-grid mt-3">
+                  <button type="button" (click)="onClear()" class="btn btn-secondary"><i class="fa fa-save"></i>Clear</button>
             </div>
           </form>
         </div>
