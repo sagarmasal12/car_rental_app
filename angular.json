@@ -56,6 +56,9 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "port": 4208
+          },
           "configurations": {
             "production": {
               "buildTarget": "car_rental_app:build:production"
