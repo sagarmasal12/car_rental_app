@@ -1,1 +1,108 @@
-<p>vehicles works!</p>
+<div class="container-fluid mt-4">
+  <div class="row">
+    
+    <!-- Vehicle List (col-8) -->
+    <div class="col-md-8 mb-3">
+      <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+          <h5 class="mb-0"><i class="fa fa-car"></i> Vehicle List</h5>
+          <button class="btn btn-light btn-sm"><i class="fa fa-refresh"></i> Refresh</button>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover table-bordered align-middle">
+              <thead class="table-dark">
+                <tr>
+                  <th>Car ID</th>
+                  <th>Brand</th>
+                  <th>Model</th>
+                  <th>Year</th>
+                  <th>Color</th>
+                  <th>Daily Rate</th>
+                  <th>Reg. No</th>
+                  <th>Image</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Toyota</td>
+                  <td>Corolla</td>
+                  <td>2021</td>
+                  <td>White</td>
+                  <td>$50</td>
+                  <td>MH12AB1234</td>
+                  <td><img src="https://via.placeholder.com/60" class="img-thumbnail"></td>
+                  <td>
+                    <button class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button>
+                    <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Honda</td>
+                  <td>Civic</td>
+                  <td>2020</td>
+                  <td>Black</td>
+                  <td>$65</td>
+                  <td>MH14XY9876</td>
+                  <td><img src="https://via.placeholder.com/60" class="img-thumbnail"></td>
+                  <td>
+                    <button class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button>
+                    <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vehicle Form (col-4) -->
+    <div class="col-md-4 mb-3">
+      <div class="card shadow-lg">
+        <div class="card-header bg-success text-white">
+          <h5 class="mb-0"><i class="fa fa-plus"></i> Add / Update Vehicle</h5>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Brand</label>
+              <input type="text" [(ngModel)]="newcarobj.brand" name="brand" class="form-control" placeholder="Enter brand">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Model</label>
+              <input type="text" [(ngModel)]="newcarobj.model" name="model" class="form-control" placeholder="Enter model">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Year</label>
+              <input type="number" [(ngModel)]="newcarobj.year" name="year" class="form-control" placeholder="Enter year">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Color</label>
+              <input type="text" [(ngModel)]="newcarobj.color" name="color" class="form-control" placeholder="Enter color">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Daily Rate ($)</label>
+              <input type="number" [(ngModel)]="newcarobj.dailyRate" name="dailyRate" class="form-control" placeholder="Enter daily rate">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Registration No</label>
+              <input type="text" [(ngModel)]="newcarobj.regNo" name="regNo" class="form-control" placeholder="Enter registration number">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Car Image URL</label>
+              <input type="text" [(ngModel)]="newcarobj.carImage" name="carImage" class="form-control" placeholder="Enter image URL">
+            </div>
+            <div class="d-grid">
+              <button type="button" (click)="onSaveCar()" class="btn btn-success"><i class="fa fa-save"></i> Save Vehicle</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
