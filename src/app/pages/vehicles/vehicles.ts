@@ -65,7 +65,7 @@ export class Vehicles implements OnInit {
   }
 
   onDeleteCarbyId(id:number){
-    this.http.delete<APIResponce>("https://freeapi.miniprojectideas.com/api/CarRentalApp/DeleteCarbyCarIdcarid?carId="+id).subscribe((res:APIResponce)=>{
+    this.http.delete<APIResponce>("https://freeapi.miniprojectideas.com/api/CarRentalApp/DeleteCarbyCarId?carid="+id).subscribe((res:APIResponce)=>{
       if(res.result){
         alert("Car deleted Succesfully")
         this.getallCars();
