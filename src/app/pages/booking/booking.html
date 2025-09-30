@@ -1,22 +1,52 @@
 <div class="container mt-4">
   <div class="row">
-    <!-- Left side form (col-8) -->
+    <!-- Right side (col-4) -->
     <div class="col-md-8">
+      <div class="row">
+        <div class="col-6">
+          <div class="card">
+            <div class="card-header bg-warning text-dark fw-bold">
+              Booking Summary
+            </div>
+            <div class="card-body">
+              <p><strong>Customer:</strong> John Doe</p>
+              <p><strong>Car:</strong> Honda City</p>
+              <p><strong>Total Bill:</strong> ₹25,000</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+           <div class="card">
+            <div class="card-header bg-warning text-dark fw-bold">
+              Booking Summary
+            </div>
+            <div class="card-body">
+              <p><strong>Customer:</strong> John Doe</p>
+              <p><strong>Car:</strong> Honda City</p>
+              <p><strong>Total Bill:</strong> ₹25,000</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- Left side form (col-8) -->
+    <div class="col-md-4">
       <div class="card">
         <div class="card-header bg-warning text-dark fw-bold">
           Car Booking Form
         </div>
-        <div class="card-body">
-          <form>
+        <div class="card-body p-5">
+          <form [formGroup]="bookingForm">
             <!-- Row 1 -->
             <div class="row mb-3">
               <div class="col-md-6">
-                <label for="customerName" class="form-label">Customer Name</label>
-                <input type="text" class="form-control" id="customerName" placeholder="Enter name">
+                <label for="customerName" class="form-label" >Customer Name</label>
+                <input type="text" class="form-control" id="customerName" placeholder="Enter name" formControlName="customerName">
               </div>
               <div class="col-md-6">
                 <label for="customerCity" class="form-label">Customer City</label>
-                <input type="text" class="form-control" id="customerCity" placeholder="Enter city">
+                <input type="text" class="form-control" id="customerCity" placeholder="Enter city" formControlName="customerCity">
               </div>
             </div>
 
@@ -24,11 +54,11 @@
             <div class="row mb-3">
               <div class="col-md-6">
                 <label for="mobileNo" class="form-label">Mobile No</label>
-                <input type="text" class="form-control" id="mobileNo" placeholder="Enter mobile">
+                <input type="text" class="form-control" id="mobileNo" placeholder="Enter mobile" formControlName="mobileNo">
               </div>
               <div class="col-md-6">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email">
+                <input type="email" class="form-control" id="email" placeholder="Enter email" formControlName="email">
               </div>
             </div>
 
@@ -36,11 +66,16 @@
             <div class="row mb-3">
               <div class="col-md-6">
                 <label for="bookingId" class="form-label">Booking ID</label>
-                <input type="number" class="form-control" id="bookingId" placeholder="Enter booking ID">
+                <input type="number" class="form-control" id="bookingId" placeholder="Enter booking ID" formControlName="bookingId">
               </div>
               <div class="col-md-6">
                 <label for="carId" class="form-label">Car ID</label>
-                <input type="number" class="form-control" id="carId" placeholder="Enter car ID">
+                <select name="" id="" formControlName="carId" class="form-control">
+                  @for(item of carList; track $index){
+                    <option [value]="item.carId">{{item.regNo}}</option>
+                  }
+                </select>
+            
               </div>
             </div>
 
@@ -48,11 +83,11 @@
             <div class="row mb-3">
               <div class="col-md-6">
                 <label for="bookingDate" class="form-label">Booking Date</label>
-                <input type="datetime-local" class="form-control" id="bookingDate">
+                <input type="datetime-local" class="form-control" id="bookingDate" formControlName="bookingDate">
               </div>
               <div class="col-md-6">
                 <label for="discount" class="form-label">Discount</label>
-                <input type="number" class="form-control" id="discount" placeholder="Enter discount">
+                <input type="number" class="form-control" id="discount" placeholder="Enter discount" formControlName="discount">
               </div>
             </div>
 
@@ -60,7 +95,7 @@
             <div class="row mb-3">
               <div class="col-md-6">
                 <label for="totalBillAmount" class="form-label">Total Bill Amount</label>
-                <input type="number" class="form-control" id="totalBillAmount" placeholder="Enter total amount">
+                <input type="number" class="form-control" id="totalBillAmount" placeholder="Enter total amount" formControlName="totalBillAmount">
               </div>
             </div>
 
@@ -70,18 +105,6 @@
       </div>
     </div>
 
-    <!-- Right side (col-4) -->
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-header bg-warning text-dark fw-bold">
-          Booking Summary
-        </div>
-        <div class="card-body">
-          <p><strong>Customer:</strong> John Doe</p>
-          <p><strong>Car:</strong> Honda City</p>
-          <p><strong>Total Bill:</strong> ₹25,000</p>
-        </div>
-      </div>
-    </div>
+
   </div>
 </div>
