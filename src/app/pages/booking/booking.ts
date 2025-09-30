@@ -1,10 +1,11 @@
 import { Component, inject, Inject, OnInit } from '@angular/core';
 import { CarService } from '../../service/car-service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-booking',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,DatePipe],
   templateUrl: './booking.html',
   styleUrl: './booking.css'
 })
@@ -13,6 +14,7 @@ export class Booking implements OnInit{
   bookingSrv = inject(CarService);
 
   carList:any[]=[]
+  bookignList:any[]=[]
 
   bookingForm = new FormGroup({
 
@@ -29,6 +31,8 @@ export class Booking implements OnInit{
 
   ngOnInit(): void {
     this.getCarList();
+    this.getBookings();
+    this.onclickSave()
 
   }
 
@@ -40,8 +44,24 @@ export class Booking implements OnInit{
 
   getBookings(){
     this.bookingSrv.getAllBooking().subscribe((res:any)=>{
-      this.carList= res.data
+      this.bookignList= res.data
+      console.log("booking-data",this.bookignList)
     })
   }
+
+  onclickSave(){
+    debugger
+    const formvalue = this.bookingForm.value;
+    this.bookingSrv.saveBooking(formvalue).subscribe((res:any)=>{
+      if(res.result){
+        alert("Car Book Successfully");
+        this.getCarList();
+        this.getBookings();
+      }else{
+        alert(res.message)
+      }
+    })
+  }
+
   
 }
