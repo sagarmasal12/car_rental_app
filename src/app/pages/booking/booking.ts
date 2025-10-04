@@ -2,10 +2,11 @@ import { Component, inject, Inject, OnInit } from '@angular/core';
 import { CarService } from '../../service/car-service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { ReusablePage } from "../reusable-page/reusable-page";
 
 @Component({
   selector: 'app-booking',
-  imports: [ReactiveFormsModule,DatePipe],
+  imports: [ReactiveFormsModule, DatePipe, ReusablePage],
   templateUrl: './booking.html',
   styleUrl: './booking.css'
 })
