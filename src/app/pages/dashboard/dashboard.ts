@@ -1,14 +1,17 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { FormControl, FormControlName, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ReusablePage } from "../reusable-page/reusable-page";
 
 @Component({
   selector: 'app-dashboard',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, ReusablePage,ReusablePage],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css'
 })
 export class Dashboard implements OnInit{
+
+  progressbar:string="0"
 
   studentList:any[]=[];
   storestudent:any[]=[]
