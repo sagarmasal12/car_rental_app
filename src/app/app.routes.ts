@@ -4,6 +4,8 @@ import { Layout } from './pages/layout/layout';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { Vehicles } from './pages/vehicles/vehicles';
 import { Booking } from './pages/booking/booking';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 
 export const routes: Routes = [
     {
@@ -20,10 +22,7 @@ export const routes: Routes = [
         path:"",
         component:Layout,
         children:[
-            {
-                path:"dashboard",
-                component:Dashboard
-            },
+            
             {
                 path:"vehicles",
                 component:Vehicles
@@ -31,6 +30,10 @@ export const routes: Routes = [
             {
                 path:"booking",
                 component:Booking
+            },
+            {
+                path:"dashboard",
+                component:Dashboard
             }
         ]
     }
