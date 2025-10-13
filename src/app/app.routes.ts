@@ -31,10 +31,10 @@ export const routes: Routes = [
                 path:"booking",
                 component:Booking
             },
-            {
-                path:"dashboard",
-                component:Dashboard
-            }
+            // {
+            //     path:"dashboard",
+            //     component:Dashboard
+            // }
         ]
     }
 ];
