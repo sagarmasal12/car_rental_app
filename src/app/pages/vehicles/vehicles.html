@@ -1,7 +1,6 @@
 <div class="container-fluid mt-4">
   <div class="row">
 
-    <!-- Vehicle List (col-8) -->
     <div class="col-md-8 mb-3">
       <div class="card shadow-lg">
         <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
@@ -39,25 +38,12 @@
                   <td>{{item.carImage}}</td>
                   <td>
                     <button class="btn btn-sm btn-warning" (click)="onEdit(item)"><i class="fa fa-pencil"></i></button>
-                    <button class="btn btn-sm btn-danger ms-2" (click)="onDeleteCarbyId(item.carId)"><i class="fa fa-trash"></i></button>
+                    <button class="btn btn-sm btn-danger ms-2" (click)="onDeleteCarbyId(item.carId)"><i
+                        class="fa fa-trash"></i></button>
                   </td>
                 </tr>
                 }
-<!-- 
-                <tr>
-                  <td>2</td>
-                  <td>Honda</td>
-                  <td>Civic</td>
-                  <td>2020</td>
-                  <td>Black</td>
-                  <td>$65</td>
-                  <td>MH14XY9876</td>
-                  <td><img src="https://via.placeholder.com/60" class="img-thumbnail"></td>
-                  <td>
-                    <button class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button>
-                    <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
-                  </td>
-                </tr> -->
+
               </tbody>
             </table>
           </div>
@@ -65,7 +51,7 @@
       </div>
     </div>
 
-    <!-- Vehicle Form (col-4) -->
+
     <div class="col-md-4 mb-3">
       <div class="card shadow-lg">
         <div class="card-header bg-success text-white">
@@ -110,14 +96,17 @@
             </div>
             <div class="d-grid">
               @if(newcarobj.carId==0){
-                  <button type="button" (click)="onSaveCar()" class="btn btn-success"><i class="fa fa-save"></i> Save Vehicle</button>
+              <button type="button" (click)="onSaveCar()" class="btn btn-success"><i class="fa fa-save"></i> Save
+                Vehicle</button>
               }@else {
-                 <button type="button" (click)="onUpdate()" class="btn btn-warning"><i class="fa fa-save"></i> Update Vehicle</button>
+              <button type="button" (click)="onUpdate()" class="btn btn-warning"><i class="fa fa-save"></i> Update
+                Vehicle</button>
               }
-            
+
             </div>
             <div class="d-grid mt-3">
-                  <button type="button" (click)="onClear()" class="btn btn-secondary"><i class="fa fa-save"></i>Clear</button>
+              <button type="button" (click)="onClear()" class="btn btn-secondary"><i
+                  class="fa fa-save"></i>Clear</button>
             </div>
           </form>
         </div>
